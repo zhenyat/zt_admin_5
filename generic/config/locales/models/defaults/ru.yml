@@ -1,0 +1,27 @@
+ru:
+  actions:
+    actions:        Действия
+    back:           К списку
+    create:         Создать
+    delete:         Удалить
+    edit:           Редактировать
+    editing:        '%{model}: редактирование'
+    new:            '%{model}: создание'
+    save:           Сохранить
+    show:           Просмотреть
+    view:           '%{model}'
+
+  language:         Русский
+
+  messages:
+    created:        '%{model} успешно создан(а)'
+    confirm:        'Вы уверены?'
+    deleted:        '%{model} успешно удален(а)'
+    updated:        '%{model} успешно изменен(а)'
+    uploaded:       Файл успешно загружен
+    error_notification: 'Что-то пошло не так'
+
+  status:
+    active:         Активный
+    archived:       Архивный
+    status:         Статус

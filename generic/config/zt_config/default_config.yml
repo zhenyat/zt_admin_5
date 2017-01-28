@@ -1,0 +1,42 @@
+################################################################################
+# default_config.yml:
+#   Contains common config options for the Application
+#   (not needed to be stored in DB)
+#
+#   Source:   http://answerstop.org/question/93679/best-way-to-create-custom-config-options-for-my-rails-app
+#
+#   Loaded to ZT_CONFIG  in:  ./initializers/zt_load_config.rb
+#
+#   Add this file to .gitignore (?)
+#
+#   NB! DO NOT UPDATE THIS FILE FOR DEBUG - use run_config.rb instead
+#
+#   11.10.2016  ZT  Inherited from BKC 95km
+################################################################################
+
+defaults: &defaults
+
+  debug:
+    status:         false
+    path:           ''
+
+  mail:
+    bcc:            zt@mail.ru
+    path:           public/mail/attachments
+
+  multilingual:
+    status:         true
+
+
+development:
+  <<: *defaults
+
+  debug:
+    status:         true
+    path:           log/zt_app.log
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

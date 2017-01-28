@@ -1,0 +1,14 @@
+- provide :title, 'Admin Login'
+%h1= t('simple_form.login')
+- if alert.present?
+  %p.alert= alert
+.row
+  .col-md-3.col-md-offset-1
+    = simple_form_for(:session, url: login_path, html: {multipart: true}) do |f|
+      = f.error_notification message: t('messages.error_notification')
+
+      .form-inputs
+        = f.input :email
+        = f.input :password
+        = f.submit t('simple_form.submit.login'), class: 'btn btn-primary btn-block'
+

@@ -1,0 +1,12 @@
+ru:
+  time:
+      day:            '%-d'
+      day_month:      '%-d %B'
+      full:           '%A, %d %B %Y г., %H:%M:%S %z'
+      long_date:      '%-d %B %Y г.'
+      long_datetime:  '%-d %B %Y г. %H:%M:%S'
+      long_time:      '%H:%M:%S'
+      short_date:     '%-d.%m.%Y'
+      short_datetime: '%-d.%m.%Y г. %H:%M'
+      short_time:     '%H:%M'
+

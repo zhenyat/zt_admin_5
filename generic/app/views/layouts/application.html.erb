@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>ZtAdminApp</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico', :rel => 'apple-touch-icon' %>
+    <%= render 'shared/shim' %>
+  </head>
+
+  <body>
+    <%= render 'shared/top_navigation' %>
+    <%= yield %>
+  </body>
+
+  <%= render 'shared/footer' %>
+</html>

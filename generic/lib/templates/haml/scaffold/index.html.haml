@@ -1,0 +1,32 @@
+%p#notice= notice
+
+%h1 Listing <%= table_name %>
+
+%table.table.datatable.table-hover
+  %thead
+    %tr
+<%- for attribute in attributes -%>
+      %th= t :<%= attribute.name %>
+<%- end -%>
+      %th= t 'actions.actions'
+
+  %tbody
+    - @<%= table_name %>.order(:position).each do |<%= singular_table_name %>|
+      %tr
+<%- for attribute in attributes -%>
+<%- if attribute.name == 'status' -%>
+        %td= status_mark <%= singular_table_name %>.status
+<%- else -%>
+        %td= <%= singular_table_name %>.<%= attribute.name %>
+<%- end -%>
+<%- end -%>
+
+        %td.buttons
+          = link_to image_tag('buttons/show.png',   alt: t('actions.show'),    title: t('actions.show')),      <%= singular_table_name %>
+          = link_to image_tag('buttons/edit.png',   alt: t('actions.edit'),    title: t('actions.edit')), edit_<%= singular_table_name %>_path(<%= singular_table_name %>)
+          = link_to image_tag('buttons/delete.png', alt: t('actions.delete'),  title: t('actions.delete')),    <%= singular_table_name %>, method: :delete, data: {confirm: t('messages.confirm')}
+
+%br
+.row
+  .col-md-2
+    = link_to t(:new), new_<%= singular_table_name %>_path, class: 'btn btn-primary btn-block'

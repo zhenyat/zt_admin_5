@@ -1,0 +1,12 @@
+en:
+  time:
+    formats:
+      day:        ! '%-d'
+      day_month:  ! '%B %-d'
+      full:       ! '%A, %B %d, %Y, %H:%M:%S %z'
+      long_time:  ! '%I:%M:%S %p'
+      long_date:  ! '%B %d, %Y'
+      short_date: ! '%m/%d/%Y'
+      short_time: ! '%I:%M %p'
+    pm: pm
+  year_abbr:      ! ''

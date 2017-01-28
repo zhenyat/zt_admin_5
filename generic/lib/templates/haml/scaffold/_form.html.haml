@@ -1,0 +1,28 @@
+.row
+  .col-md-6
+    = simple_form_for(@<%= singular_table_name %>) do |f|
+      /= f.error_notification
+      = errors_for(@<%= singular_table_name %>)
+
+      .form-inputs
+      <%- attributes.each do |attribute| -%>
+      <%- if attribute.reference? -%>
+        = f.association :<%= attribute.name %>, label_method: title
+      <%- else -%>
+      <%- if attribute.name == 'position' -%>
+        = f.input :position, as: :hidden
+      <%- else -%>
+        = f.input :<%= attribute.name %>
+      <%- end -%>
+      <%- end -%>
+      <%- end -%>
+
+      .form-actions
+        .row
+          .col-md-4
+            = f.submit :class => "btn btn-primary btn-block"
+          - unless @<%= singular_table_name %>.new_record?
+            .col-md-2
+              = link_to t('actions.show'), @<%= singular_table_name %>,  class: 'btn btn-info btn-block' unless @<%= singular_table_name %>.new_record?
+          .col-md-2
+            = link_to t('actions.back'), <%= table_name %>_path, class: "btn btn-default btn-block"

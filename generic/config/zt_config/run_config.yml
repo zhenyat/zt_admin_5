@@ -1,0 +1,18 @@
+################################################################################
+# run_config.yml:
+#   Contains config options for the Application Run:
+#     corresponding default values to be updated
+#
+#   Loaded in:  ./initializers/zt_load_config.rb
+#
+#   11.10.2016  ZT  Inherited from BKC 95km
+################################################################################
+
+mail:
+  bcc:  evgt@mail.ru
+
+debug:
+  status:  true
+
+#multilingual:
+#  status:  false

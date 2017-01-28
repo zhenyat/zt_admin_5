@@ -1,0 +1,19 @@
+%h1= t User.model_name.human
+%table.table.table-striped
+  %tbody
+    - @user.attributes.each do |key, value|
+      - if key == 'id' || key.include?('digest') || key == 'created_at' || key == 'updated_at'
+        //skip these attributes
+      -else
+        %tr
+          - if key == 'status'
+            %td= t 'status.status'
+            %td= status_mark @user.status
+          -else
+            %td= t "activerecord.attributes.user.#{key}"
+            %td= value
+
+.form_actions
+  .row
+    .col-md-1
+      = link_to t('actions.back'), admin_users_path, class: 'btn btn-primary btn-block'

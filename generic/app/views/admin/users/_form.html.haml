@@ -1,0 +1,23 @@
+.row
+  .col-md-6
+    = simple_form_for([:admin, @user], html: {multipart: true}, url: (@user.id.nil? ? {action: 'create', locale: params[:locale]} : {action: 'update', locale: params[:locale]})) do |f|
+      = f.error_notification  message: t('messages.error_notification')
+
+      .form-inputs
+        = f.input :role, include_blank: false
+        = f.input :last_name
+        = f.input :first_name
+        = f.input :email
+        = f.input :password
+        = f.input :password_confirmation
+
+        = f.input :status                               # DDL
+        /= render 'admin/shared/status_buttons', f: f   # Radio-buttons
+
+      .form_actions
+        .row
+          .col-md-3
+            = f.submit t('actions.save'), class: 'btn btn-primary btn-block'
+          .col-md-3
+            - if @current_user.sysadmin?
+              = link_to t('actions.back'), admin_users_path, class: 'btn btn-default btn-block'

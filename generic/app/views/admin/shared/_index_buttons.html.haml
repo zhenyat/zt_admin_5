@@ -1,0 +1,10 @@
+= link_to t('actions.show'),   [:admin, resource],        class: 'btn btn-primary btn-xs'
+= link_to t('actions.edit'),   [:edit, :admin, resource], class: 'btn btn-warning btn-xs'
+= link_to t('actions.delete'), [:admin, resource],        class: 'btn btn-danger  btn-xs', method: :delete, data: {confirm: t('messages.confirm')}
+
+
+/ ref: https://makandracards.com/makandra/1375-url_for-with-added-params not needed if *default_url_options* method is applied
+
+/= link_to t('actions.show'),   polymorphic_url([:admin, resource],        locale: params[:locale]), class: 'btn btn-primary btn-xs'
+/= link_to t('actions.edit'),   polymorphic_url([:edit, :admin, resource], locale: params[:locale]), class: 'btn btn-warning btn-xs'
+/= link_to t('actions.delete'), polymorphic_url([:admin, resource],        locale: params[:locale]), class: 'btn btn-danger  btn-xs', method: :delete, data: {confirm: t('messages.confirm')}
