@@ -28,10 +28,10 @@ module ZtAdmin
       options.enum = []
 
       opt_parser = OptionParser.new do |opts|
-        opts.banner  = "\nUsage:#{TAB2}zt_admin [i | init]     - Gemfile to be updated for further `bundle install`"
-        opts.banner << "\n#{TAB5}zt_admin [c | clone]    - generic files to be added"
-        opts.banner << "\n#{TAB5}zt_admin [g | generate] <model_name> [options]"
-        opts.banner << "\n#{TAB5}zt_admin {d | destroy} <model_name>"
+        opts.banner  = "\nUsage:#{TAB2}zt_admin {i | init}     - Gemfile to be updated for further `bundle install`"
+        opts.banner << "\n#{TAB5}zt_admin {c | clone}    - generic files to be added"
+        opts.banner << "\n#{TAB5}zt_admin {g | generate} <model_name> [options]"
+        opts.banner << "\n#{TAB5}zt_admin {d | destroy}  <model_name>"
         opts.banner << "\n\nExamples: zt_admin g User -e role -d\n#{TAB5}zt_admin destroy User"
 
         opts.separator ""

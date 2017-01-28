@@ -240,6 +240,9 @@ module ZtAdmin
     puts colored GREEN, "#{TAB2}Files have been copied to app/views/admin"
 
     puts colored BLUE, "#{TAB}Cloning DONE"
+    puts colored(MAGENTA, "Run commands now:")
+    puts colored(MAGENTA, "#{TAB2}rails db:migrate")
+    puts colored(MAGENTA, "#{TAB2}rails db:seed")
 
   rescue Exception => error
     puts colored(RED, 'ACHTUNG! Something went wrong during cloning process...')
