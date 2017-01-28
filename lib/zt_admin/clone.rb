@@ -226,7 +226,7 @@ module ZtAdmin
 
     # Directory *pages*
     create_dir "app/views/pages"
-    FileUtils.cp_r "#{views}/sessions", "#{AppRoot}/app/views/"
+    FileUtils.cp_r "#{views}/pages", "#{AppRoot}/app/views/"
     puts colored GREEN, "#{TAB2}Files have been copied to app/views/pages"
 
     # Directory *shared*
