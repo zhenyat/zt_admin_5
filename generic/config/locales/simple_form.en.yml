@@ -1,6 +1,6 @@
 en:
   simple_form:
-    "login":        'Login to Administration Module'
+    "login":        'Login to Administrative Module'
     "yes":          'Yes'
     "no":           'No'
     required:

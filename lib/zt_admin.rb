@@ -1,9 +1,8 @@
 ################################################################################
 #   zt_admin.rb
-#     Main Module to generate / update / destroy directories and files
+#     Main Module to create / update / destroy directories and files
 #
-#   22.01.2017  Updated (with test)
-#   23.01.2017  Generic processe added
+#   29.01.2017  ZT
 ################################################################################
 require 'zt_admin/version'
 require 'zt_admin/setpar'
@@ -15,23 +14,26 @@ require 'active_support/dependencies/autoload'
 
 module ZtAdmin
   options = OptparseCommand.parse(ARGV)
-  ZtMethods.get_names options
+  get_names options                           # Model names & $mode
 
   if $mode == 'init'
     require 'zt_admin/init'                   # Initial step
 
-  elsif $mode == 'clone'                      # Generate Admin directories and files
+  elsif $mode == 'clone'                      # Cloning step
     require 'zt_admin/clone'                  # Copy Generic files
 
   elsif $mode == 'generate'                   # Generate Admin directories and files
 
-    ZtMethods.get_attributes                  # Handle Model attributes from a migration file
+    if $model == "User"
+      puts colored RED, "The model User has been already generated!"
+      exit
+    end
+
+    get_attributes
+
     require 'zt_admin/controller'             # Admin Controller
-    require 'zt_admin/authentication'         # Concerns Controller & Updates application_controller
-  ZtMethods.debug_printing options if $debug
-  exit
-#    require 'zt_admin/helper'                 # Admin Helpers
     require 'zt_admin/add_resource'           # Update config/routes.rb file
+    require 'zt_admin/policy'                 # Generate policy file
 
     create_views_path                         # Generate Admin Views for the Model
     require 'zt_admin/view_index'             # View:     index
@@ -40,17 +42,17 @@ module ZtAdmin
     require 'zt_admin/view_edit'              # View:     edit
     require 'zt_admin/view_form'              # Partial: _form
 
-    require 'zt_admin/add_assets'             # Assets for Admin
+  else                                        # Destroy Admin files and directories
+    if $model == "User"
+      puts colored RED, "The model User can't be destroyed!"
+      exit
+    end
 
-    require 'zt_admin/add_shared'             # Files in shared directory
-
-  else                                          # Destroy Admin files and directories
     require 'zt_admin/destroy'                # Destroy files and directories
     require 'zt_admin/remove_resource'        # Remove resource from config/routes.rb file
-    require 'zt_admin/remove_authentication'  # Update application_controller.rb
   end
 
-  ZtMethods.debug_printing options if $debug
+  debug_printing options if $debug
   exit
 
   # Test sample

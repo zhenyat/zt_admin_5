@@ -24,12 +24,6 @@ TAB4  = TAB  * 4
 TAB5  = TAB4 + TAB
 TAB6  = TAB  * 6
 
-# Variables: paths
-#$app_root           = `pwd`.chomp    # chomp without arguments removes "\n" or "\r\n" if any
-#$migrate_path       = "#{$app_root}/db/migrate"
-#$model_path         = "#{$app_root}/app/models"
-#$admin_shared_path  = "#{$app_root}/app/views/admin/shared"
-
 # Special attribute cases (identified in *get_attributes*)
 $references_names    = []
 $password_attribute  = nil

@@ -10,15 +10,13 @@ require 'optparse'
 require 'optparse/time'
 require 'ostruct'
 
-include ZtMethods
-
 module ZtAdmin
   class OptparseCommand
 
     # Returns a structure describing the Command options
     def self.parse(args)
       if args.size == 0
-        puts colored RED, "Not enough arguments. To learn the command use options: -h or --help"
+        puts ZtAdmin::colored RED, "Not enough arguments. To learn the command use options: -h or --help"
         exit
       end
 
@@ -30,9 +28,10 @@ module ZtAdmin
       opt_parser = OptionParser.new do |opts|
         opts.banner  = "\nUsage:#{TAB2}zt_admin {i | init}     - Gemfile to be updated for further `bundle install`"
         opts.banner << "\n#{TAB5}zt_admin {c | clone}    - generic files to be added"
+        opts.banner << "\n#{TAB5}                          including:  MVC User; VC sessions; VC pages/home"
         opts.banner << "\n#{TAB5}zt_admin {g | generate} <model_name> [options]"
         opts.banner << "\n#{TAB5}zt_admin {d | destroy}  <model_name>"
-        opts.banner << "\n\nExamples: zt_admin g User -e role -d\n#{TAB5}zt_admin destroy User"
+        opts.banner << "\n\nExamples: zt_admin i\n#{TAB5}zt_admin c\n#{TAB5}zt_admin g Product -e category -d\n#{TAB5}zt_admin destroy Product"
 
         opts.separator ""
         opts.separator "Specific options:"

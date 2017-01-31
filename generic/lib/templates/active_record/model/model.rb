@@ -29,7 +29,7 @@
 <%- if attribute.reference? -%>
 #   <%= attribute.name %>_id          - FK
 <%- else -%>
-#   <%= attribute.name %>             - <%= attribute.type %>:
+#   <%= attribute.name %>             - <%= attribute.name %>:  <%= attribute.type %>
 <%- end -%>
 <%- end -%>
 <%- end -%>
@@ -149,8 +149,8 @@ class <%= class_name %> < <%= parent_class_name.classify %>
 
     def set_position
       if self.id.blank?
-        last_position = <%= class_name %>.order(:position).last
-        self.position = last_position.blank? ? 1 : last_position.position.to_i + 1
+        last_item = <%= class_name %>.order(:position).last
+        self.position = last_item.blank? ? 1 : last_item.position.to_i + 1
       end
     end
 <%- end -%>

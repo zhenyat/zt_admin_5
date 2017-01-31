@@ -1,7 +1,7 @@
 %p.p-status
   = "#{t('status.status')}:"
   &nbsp;&nbsp;
-  = f.radio_button :status, :active
+  = f.radio_button :status, :active, checked: true
   = label :status, t('status.active')
   &nbsp;
   = f.radio_button :status, :archived

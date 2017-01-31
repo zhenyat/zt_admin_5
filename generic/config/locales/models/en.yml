@@ -4,6 +4,10 @@ en:
       user:
         one:                    User
         other:                  Users
+      product:
+        one:                    Product
+        other:                  Products
+
     attributes:
       user:
         role:                   Role
@@ -13,3 +17,10 @@ en:
         password:               Password
         password_confirmation:  Password confirmation
         status:                 Status
+      product:
+        category:               Category
+        name:                   Name
+        title:                  Title
+        description:            Description
+        price:                  price
+        position:               Position

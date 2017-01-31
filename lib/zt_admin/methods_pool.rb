@@ -7,20 +7,19 @@
 
 require 'fileutils'
 
-module ZtMethods
+module ZtAdmin
 
   ##############################################################################
   # Reports an action applied to a Directory / File
   ##############################################################################
-  def action_report relative_path
+  def self.action_report relative_path
 
     # Case: routes.rb
-    if relative_path.include? "routes.rb"
-      puts colored(BLUE,  "#{TAB}update     ") + relative_path
-      puts colored(GREEN, "#{TAB}create     ") + 'config/routes_backup.rb'
-      return
-    end
-    absolute_path = "#{$app_root}/#{relative_path}"
+#    if relative_path.include? "routes.rb"
+#      puts colored(BLUE,  "#{TAB}update     ") + relative_path
+#      return
+#    end
+    absolute_path = "#{AppRoot}/#{relative_path}"
 
     if File.basename(relative_path).include?('.')   # It's a file
       if File.exist? absolute_path
@@ -40,7 +39,7 @@ module ZtMethods
   ##############################################################################
   # Colorizes text for output to bash terminal
   ##############################################################################
-  def colored flag, text
+  def self.colored flag, text
     case flag
       when BLACK
         index = 30
@@ -67,9 +66,18 @@ module ZtMethods
   end
 
   ##############################################################################
+  # Creates a directory for the App
+  ##############################################################################
+  def self.create_dir dirname
+    action_report dirname
+    unless File.exist?  "#{AppRoot}/#{dirname}"
+      FileUtils.mkdir_p "#{AppRoot}/#{dirname}"
+    end
+  end
+  ##############################################################################
   # Debugging tool
   ##############################################################################
-  def debug_printing options
+  def self.debug_printing options
     puts colored CYAN, "\nShow ARGV:"
     puts colored CYAN, ARGV
 
@@ -77,8 +85,8 @@ module ZtMethods
     puts colored CYAN, options
 
     puts colored CYAN, "\nDebug *setpar*"
-    puts colored CYAN, "$app_root          = #{$app_root}"
-    puts colored CYAN, "admin shared path  = #{$admin_shared_path}"
+    puts colored CYAN, "AppRoot            = #{AppRoot}"
+    puts colored CYAN, "admin shared path  = #{$AdminSharedPath}"
     puts colored CYAN, "absolute view path = #{$absolute_views_path}"
     puts colored CYAN, "relative view path = #{$relative_views_path}"
 
@@ -89,9 +97,9 @@ module ZtMethods
   ##############################################################################
   # Creates Admin views path for a Model
   ##############################################################################
-  def create_views_path
+  def self.create_views_path
     $relative_views_path = "app/views/admin/#{$names}"
-    $absolute_views_path = "#{$app_root}/#{$relative_views_path}"
+    $absolute_views_path = "#{AppRoot}/#{$relative_views_path}"
     action_report $relative_views_path
 
     FileUtils::mkdir_p($absolute_views_path) unless File.exist?($absolute_views_path)
@@ -100,7 +108,7 @@ module ZtMethods
   ##############################################################################
   # Selects type of input field for a given Model attribute in a form_for helper
   ##############################################################################
-  def field_type attr_name, attr_type
+  def self.field_type attr_name, attr_type
     case attr_type
       when 'boolean'
         return "check_box :#{attr_name}"
@@ -143,20 +151,19 @@ module ZtMethods
   ##############################################################################
   # Gets Model attributes aka arrays of names and types from the migration file
   ##############################################################################
-  def get_attributes
+  def self.get_attributes
     $attr_names = []
     $attr_types = []
     filename    = nil
     attributes  = []    # to be array aka:  ['string:name', 'integer:status']
 
-    file_list   = Dir.entries($migrate_path)
-
+    file_list   = Dir.entries(MigratePath)
     file_list.each do |f|
       filename = f if f.include? "create_#{$names}"   # find a proper migration file
     end
 
     if filename
-      file_in = File.open("#{$migrate_path}/#{filename}", 'r')
+      file_in = File.open("#{MigratePath}/#{filename}", 'r')
       lines   = file_in.readlines
 
       # Collect attributes parsing lines of a migration file
