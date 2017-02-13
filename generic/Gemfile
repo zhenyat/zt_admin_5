@@ -25,6 +25,8 @@
 #   09.01.2017  Rails 5.0.1 / Ruby 2.4.0
 #               (with json not OK for Ruby 2.4.0: line 'gem *sdoc*' is commented out for a while)
 #   18.01.2017  Gems versions updated
+#   07.02.2017  gem 'seed_dump' added
+#   13.02.2017  gem 'react-rails' added
 ################################################################################
 source 'https://rubygems.org'
 ruby '2.4.0'
@@ -35,10 +37,12 @@ gem 'sqlite3'                                   # Use sqlite3    as the database
 #gem 'mysql2', '~> 0.4.4'                       # Use mysql      as the database for Active Record
 #gem 'pg', '~> 0.19.0'                          # Use postgresql as the database for Active Record
 #gem 'pg_search', '~> 2.0', '>= 2.0.1'          # https://mkdev.me/posts/kak-delat-full-text-poisk-v-rails-pri-pomoschi-postgresql
+gem 'seed_dump'                                 # https://github.com/rroblak/seed_dump
 
 gem 'sass-rails',   '~> 5.0'                    # Use SCSS for stylesheets
 gem 'uglifier',     '>= 1.3.0'                  # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.2'                    # Use CoffeeScript for .coffee assets and views
+gem 'react-rails'                               # https://rubygems.org/gems/react-rails/versions/1.7.1
 
 #gem 'therubyracer', platforms: :ruby           # Call JavaScript code and manipulate JavaScript objects from Ruby.
                                                 # Call Ruby code and manipulate Ruby objects from JavaScript.
