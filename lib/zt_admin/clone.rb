@@ -5,6 +5,7 @@
 #
 #   26.01.2017  ZT
 #   12.04.2017  1.2.0   Workaround *vendor* *assets* for RoR 5.1.x
+#               1.2.1   Bugs fixed
 ################################################################################
 module ZtAdmin
 
@@ -106,9 +107,9 @@ module ZtAdmin
     action_report "vendor"
 
     # Workaround for RoR 5.1.x
-    FileUtils.mdir "{AppRoot}/vendor/assets"             unless Dir.exist?("{AppRoot}/vendor/assets")
-    FileUtils.mdir "{AppRoot}/vendor/assets/javascripts" unless Dir.exist?("{AppRoot}/vendor/assets/javascripts")
-    FileUtils.mdir "{AppRoot}/vendor/assets/stylesheets" unless Dir.exist?("{AppRoot}/vendor/assets/stylesheets")
+    FileUtils.mkdir "#{AppRoot}/vendor/assets"             unless Dir.exist?("#{AppRoot}/vendor/assets")
+    FileUtils.mkdir "#{AppRoot}/vendor/assets/javascripts" unless Dir.exist?("#{AppRoot}/vendor/assets/javascripts")
+    FileUtils.mkdir "#{AppRoot}/vendor/assets/stylesheets" unless Dir.exist?("#{AppRoot}/vendor/assets/stylesheets")
     
     action_report "vendor/assets/javascripts/rainbow.js"
     FileUtils.cp "#{vendor}/assets/javascripts/rainbow.js", "#{AppRoot}/vendor/assets/javascripts"
