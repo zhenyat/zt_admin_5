@@ -4,6 +4,7 @@
 #   Clones generic files to the App
 #
 #   26.01.2017  ZT
+#   12.04.2017  1.2.0   Workaround *vendor* *assets* for RoR 5.1.x
 ################################################################################
 module ZtAdmin
 
@@ -104,12 +105,17 @@ module ZtAdmin
   ### Get generic files in the *vendor* directory
     action_report "vendor"
 
-    action_report "vendor/javascripts//rainbow.js"
+    # Workaround for RoR 5.1.x
+    FileUtils.mdir "{AppRoot}/vendor/assets"             unless Dir.exist?("{AppRoot}/vendor/assets")
+    FileUtils.mdir "{AppRoot}/vendor/assets/javascripts" unless Dir.exist?("{AppRoot}/vendor/assets/javascripts")
+    FileUtils.mdir "{AppRoot}/vendor/assets/stylesheets" unless Dir.exist?("{AppRoot}/vendor/assets/stylesheets")
+    
+    action_report "vendor/assets/javascripts/rainbow.js"
     FileUtils.cp "#{vendor}/assets/javascripts/rainbow.js", "#{AppRoot}/vendor/assets/javascripts"
     action_report "vendor/javascripts/ruby.js"
     FileUtils.cp "#{vendor}/assets/javascripts/ruby.js",    "#{AppRoot}/vendor/assets/javascripts"
 
-    action_report "vendor/stylesheets/github.css"
+    action_report "vendor/assets/stylesheets/github.css"
     FileUtils.cp "#{vendor}/assets/stylesheets/github.css", "#{AppRoot}/vendor/assets/stylesheets"
 
     ####    db    ####
