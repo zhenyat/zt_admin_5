@@ -8,11 +8,11 @@ Gem to generate Admin files for RoR App via CLI. It's further development of *bk
 
 ## Versions:
 
-Ruby 2.4.0, Rails 5.0.1
+Ruby 2.4.1, Rails 5.0.3     (v.1.3.0)
 
 ## Development
 
-$ chruby 2.4.0
+$ chruby 2.4.1
 
 $ bundle gem zt_admin
 
