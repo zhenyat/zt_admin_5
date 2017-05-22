@@ -28,10 +28,11 @@
 #   07.02.2017  gem 'seed_dump' added
 #   13.02.2017  gem 'react-rails' added
 #   27.04.2017  Rails 5.0.2
+#   22.05.2017  Ruby 2.4.1 / RoR 5.0.3
 ################################################################################
 source 'https://rubygems.org'
-ruby '2.4.0'
-gem 'rails', '~> 5.0.2'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.4.1'
+gem 'rails', '~> 5.0.3'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'sqlite3'                                   # Use sqlite3    as the database for Active Record
 #gem 'sqlite3', groups: [:test, :development]
