@@ -26,6 +26,10 @@ $ rm zt_admin-0.1.0.gem; git add .; gem build zt_admin.gemspec; sudo gem install
 
 $ bin/zt_admin
 
+## Uninstal gem
+
+$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 zt_admin
+
 # Admin Development:
 
 $ rails g controller sessions new
