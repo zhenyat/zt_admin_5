@@ -5,6 +5,7 @@
 # 09.11.2016  back-update
 # 14.01.2017  Pundit procedure
 #             Flash handlig
+# 18.08.2017  replace 'before_filter' with 'before_action'
 ################################################################################
 class Admin::BaseController < ApplicationController
   include Pundit
@@ -13,7 +14,7 @@ class Admin::BaseController < ApplicationController
 
   protect_from_forgery with: :exception
 
-  before_filter :check_login
+  before_action :check_login
   before_action :current_user
   after_action  :verify_authorized, except: :index
 #  after_action  :verify_policy_scoped, only: :index
