@@ -137,4 +137,18 @@ module ApplicationHelper
       image_tag('admin/minus_mark.png', size: '12x15', alt: 'Архив')
     end
   end
+
+  ##############################################################################
+  # Returns a date in the format:
+  #   'Month d' (for current year) / 'Month d, year'
+  #
+  # 24.08.2017  ZT
+  ##############################################################################
+  def zt_date date
+    if date.year == Time.now.year
+      l date, format: :short
+    else
+      l date, format: :long
+    end
+  end
 end

@@ -5,6 +5,7 @@
 #   03.01.2014  more update
 #   16.03.2013  Last update (text alignment)
 #   24.01.2016  update with last version and ror5
+#   24.08.2017  format 'long' year updated
 ################################################################################
 ru:
   date:
@@ -40,7 +41,7 @@ ru:
     - суббота
     formats:
       default:  ! '%d.%m.%Y'
-      long:     ! '%-d %B %Y'
+      long:     ! '%-d %B %Y г.'
       short:    ! '%-d %B'
     month_names:
     -
