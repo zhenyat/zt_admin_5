@@ -35,6 +35,7 @@
 #   28.07.2017  bootstrap 4 as alternative
 #   30.07.2017  gem 'rest-client' (to handle API)
 #   16.08.2017  Rails 5.1.3
+#   09.09.2017  Rails 5.1.4;  Bootstrap 4.0.0.beta
 ################################################################################
 source 'https://rubygems.org'
 ruby '2.4.1'
@@ -44,7 +45,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.3'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.1.4'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'sqlite3'                                   # Use sqlite3    as the database for Active Record
 #gem 'sqlite3', groups: [:test, :development]
@@ -53,7 +54,7 @@ gem 'sqlite3'                                   # Use sqlite3    as the database
 #gem 'pg_search', '~> 2.0', '>= 2.0.1'          # https://mkdev.me/posts/kak-delat-full-text-poisk-v-rails-pri-pomoschi-postgresql
 gem 'seed_dump'                                 # https://github.com/rroblak/seed_dump
 
-gem 'sass-rails',   '~> 5.0'                    # Use SCSS for stylesheets
+gem 'gl sass-rails',   '~> 5.0'                 # Use SCSS for stylesheets
 gem 'uglifier',     '>= 1.3.0'                  # Use Uglifier as compressor for JavaScript assets
 gem 'coffee-rails', '~> 4.2'                    # Use CoffeeScript for .coffee assets and views
 gem 'react-rails'                               # https://rubygems.org/gems/react-rails/versions/1.7.1
@@ -89,10 +90,12 @@ gem "acts_as_list"                              # https://github.com/swanandp/ac
 # MH 3-rd Edition
 gem 'faker'
 #gem 'fog'
-#gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'bootstrap-sass'                            # bootstrap 3
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+
+#gem 'bootstrap-sass'                            # Bootstrap 3
+#gem 'will_paginate'
+#gem 'bootstrap-will_paginate'
+
+gem 'bootstrap', '~> 4.0.0.beta'                # Bootstrap 4:  https://github.com/twbs/bootstrap-rubygem
 
 gem 'lightbox2-rails'                           # https://github.com/gavinkflam/lightbox2-rails
 gem 'simple_form'                               # https://github.com/plataformatec/simple_form
