@@ -8,7 +8,7 @@ Gem to generate Admin files for RoR App via CLI. It's further development of *bk
 
 ## Versions:
 
-Ruby 2.4.1, Rails 5.0.3     (v.1.3.0)
+Ruby 2.4.2, Rails 5.1.4     (v.1.10.0)
 
 ## Development
 
@@ -22,7 +22,7 @@ Then update files:
 
 ## Run:
 
-$ rm zt_admin-0.1.0.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-0.1.0.gem
+$ rm zt_admin-1.10.0.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-1.10.0.gem
 
 $ bin/zt_admin
 

@@ -36,9 +36,10 @@
 #   30.07.2017  gem 'rest-client' (to handle API)
 #   16.08.2017  Rails 5.1.3
 #   09.09.2017  Rails 5.1.4;  Bootstrap 4.0.0.beta
+#   18.09.2017  Ruby 2.4.2
 ################################################################################
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.4.2'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
