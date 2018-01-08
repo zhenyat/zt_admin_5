@@ -8,8 +8,11 @@
 //  bootstrap-sprockets and bootstrap SHOULD NOT BOTH BE INCLUDED in application.js
 //  - bootstrap-sprockets provides individual Bootstrap Javascript files (alert.js or dropdown.js, for example)
 //  - bootstrap provides a concatenated file containing all Bootstrap Javascripts.
+//
+//  Bootstrap tooltips and popovers depend on popper.js for positioning
 
-//= require jquery
+//= require jquery3
+//= require popper
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
