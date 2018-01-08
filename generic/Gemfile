@@ -41,6 +41,7 @@
 #   28.09.2017  gon
 #   23.10.2017  Fusuion Charts
 #   26.10.2017  disable gem 'rails_12factor' - not needed anymore
+#               # See:  https://devcenter.heroku.com/articles/getting-started-with-rails5#local-workstation-setu
 #   09.01.2018  Ruby 2.5.0, bootstrap 4.0.0.beta3
 ################################################################################
 source 'https://rubygems.org'
@@ -80,6 +81,21 @@ gem 'bcrypt', '~> 3.1.7'                        # Use ActiveModel has_secure_pas
 
 gem 'haml-rails'                                # https://github.com/indirect/haml-rails
 
+gem 'zt_btce', :github => 'zhenyat/zt_btce', :branch => 'master'
+
+# crono for jobs
+gem 'crono'
+gem 'daemons'
+gem 'sinatra', require: nil                    # to run web-console for crono
+
+#gem 'whenever', :require => false
+#gem "simple_scheduler"
+
+# Charts
+gem 'gon'
+gem 'fusioncharts-rails'
+#gem 'chartkick'
+#
 #gem 'rest-client'                               # https://github.com/rest-client/rest-client
 #gem 'devise'                                   # https://github.com/plataformatec/devise
 
