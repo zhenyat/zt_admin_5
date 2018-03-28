@@ -10,12 +10,15 @@
 //  - bootstrap provides a concatenated file containing all Bootstrap Javascripts.
 //
 //  Bootstrap tooltips and popovers depend on popper.js for positioning
+//
+//  jQuery is not needed fro Rails 5.2 (?)
+//  see: https://blog.bigbinary.com/2017/06/20/rails-5-1-has-dropped-dependency-on-jquery-from-the-default-stack.html
 
-//= require jquery3
+//  require jquery3
 //= require popper
-//= require jquery_ujs
+//  require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-// require rainbow
-// require ruby
+//  require rainbow
+//  require ruby
 //= require_tree .
