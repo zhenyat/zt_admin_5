@@ -43,38 +43,40 @@
 #   26.10.2017  disable gem 'rails_12factor' - not needed anymore
 #               # See:  https://devcenter.heroku.com/articles/getting-started-with-rails5#local-workstation-setu
 #   09.01.2018  Ruby 2.5.0, bootstrap 4.0.0.beta3
+#   27.03.2018  Rails 5.2.0.rc2, bootstrap 4.0, 'webpacker', bootsnap, crono
+#               and some gems added / versions updated
+#               jquery-rails excluded
 ################################################################################
 source 'https://rubygems.org'
 ruby '2.5.0'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem 'rails', '~> 5.1.4'                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.2.0.rc2'                     # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'sqlite3'                                   # Use sqlite3    as the database for Active Record
 #gem 'sqlite3', groups: [:test, :development]
-#gem 'mysql2', '>= 0.3.18', '< 0.5'             # Use mysql      as the database for Active Record
+#gem 'mysql2', '~> 0.4.4'                       # Use mysql      as the database for Active Record
 #gem 'pg', '~> 0.19.0'                          # Use postgresql as the database for Active Record
 #gem 'pg_search', '~> 2.0', '>= 2.0.1'          # https://mkdev.me/posts/kak-delat-full-text-poisk-v-rails-pri-pomoschi-postgresql
 gem 'seed_dump'                                 # https://github.com/rroblak/seed_dump
 
 gem 'sass-rails',   '~> 5.0'                    # Use SCSS for stylesheets
 gem 'uglifier',     '>= 1.3.0'                  # Use Uglifier as compressor for JavaScript assets
-gem 'coffee-rails', '~> 4.2'                    # Use CoffeeScript for .coffee assets and views
+gem 'webpacker'                                 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'react-rails'                               # https://rubygems.org/gems/react-rails/versions/1.7.1
 
 #gem 'therubyracer', platforms: :ruby           # Call JavaScript code and manipulate JavaScript objects from Ruby.
                                                 # Call Ruby code and manipulate Ruby objects from JavaScript.
                                                 # https://github.com/rails/execjs
+#gem 'mini_racer', platforms: :ruby             # See https://github.com/rails/execjs#readme for more supported runtimes
 
-gem 'jquery-rails'                              # Use jquery as the JavaScript library
+gem 'coffee-rails', '~> 4.2'                    # Use CoffeeScript for .coffee assets and views
+#gem 'jquery-rails'                              # Use jquery as the JavaScript library
 gem 'turbolinks', '~> 5'                        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jbuilder', '~> 2.5'                        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
-gem 'puma'                                      # Use Puma as the app server
+gem 'puma', '~> 3.11'                           # Use Puma as the app server
 
 #gem 'sdoc', group: :doc                         # bundle exec rake doc:rails generates the API under doc/api.
 gem 'bcrypt', '~> 3.1.7'                        # Use ActiveModel has_secure_password
@@ -102,22 +104,24 @@ gem 'fusioncharts-rails'
 gem 'pundit'                                    # https://github.com/elabs/pundit
 gem 'ckeditor'                                  # https://github.com/galetahub/ckeditor
 gem 'carrierwave'                               # https://github.com/carrierwaveuploader/carrierwave
-gem 'mini_magick'                               # https://github.com/minimagick/minimagick
+gem 'mini_magick', '~> 4.8'                     # Use ActiveStorage variant https://github.com/minimagick/minimagick
 
-gem "acts_as_list"                              # https://github.com/swanandp/acts_as_list
+#gem "acts_as_list"                              # https://github.com/swanandp/acts_as_list
 #gem 'acts-as-taggable-on'                      # https://github.com/mbleigh/acts-as-taggable-on
 
 #gem 'redis'                                    # Use Redis adapter to run Action Cable in production
 
+gem 'bootsnap', '>= 1.1.0', require: false      # Reduces boot times through caching; required in config/boot.rb
+
 # MH 3-rd Edition
-gem 'faker'
+#gem 'faker'
 #gem 'fog'
 
 #gem 'bootstrap-sass'                            # Bootstrap 3
 #gem 'will_paginate'
 #gem 'bootstrap-will_paginate'
 
-gem 'bootstrap', '~> 4.0.0.beta3'               # Bootstrap 4:  https://github.com/twbs/bootstrap-rubygem
+gem 'bootstrap', '~> 4.0.0'                     # https://github.com/twbs/bootstrap-rubygem
 
 gem 'lightbox2-rails'                           # https://github.com/gavinkflam/lightbox2-rails
 gem 'simple_form'                               # https://github.com/plataformatec/simple_form
@@ -128,13 +132,13 @@ gem 'fusioncharts-rails'
 gem 'chartkick'
 
 group :development, :test do
-  gem 'byebug'                      # Byebug is a Ruby 2 debugger. Call 'byebug' anywhere in the code to stop execution and get a debugger console
-                                    # https://github.com/deivid-rodriguez/byebug
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Byebug is a Ruby 2 debugger. Call 'byebug' anywhere in the code to stop execution and get a debugger console
+                                                      # https://github.com/deivid-rodriguez/byebug
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'     # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'listen'                      # https://github.com/guard/listen
+  gem 'listen', '>= 3.0.5', '< 3.2' # https://github.com/guard/listen
   gem 'spring'                      # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen'       # Makes spring watch files using the listen gem.
 
@@ -144,10 +148,14 @@ group :development do
 end
 
 group :test do
+  #gem 'capybara', '>= 2.15', '< 4.0' # Adds support for Capybara system testing and selenium driver
+  #gem 'selenium-webdriver'
   gem 'minitest-reporters'
   gem 'mini_backtrace'
   gem 'guard'
   gem 'guard-minitest'
+  
+  gem 'chromedriver-helper'         # Easy installation and use of chromedriver to run system tests with Chrome
 end
 
 # Heroku
