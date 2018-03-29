@@ -1,3 +1,11 @@
+################################################################################
+#
+#   29.03.2018  Bug fixed for logout error (is it since Rails 5.2?):
+#                 No route matches [GET] "/ru/logout" 
+#               Solution: *get* instead of *delete*  - has been canceled (see below)
+#               
+#               Later: The bug is vanishing if to use *jquery_ujs* - MUSR BE!
+################################################################################
 Rails.application.routes.draw do
 
   if MULTILINGUAL
@@ -8,6 +16,7 @@ Rails.application.routes.draw do
       get    'sessions/new'                                 # sessions_new_path
       post   'login',   to: 'sessions#create'               # login_path  - creates new session (login)
       delete 'logout',  to: 'sessions#destroy', as: :logout # logout_path - deletes session (log out)
+     #get    'logout',  to: 'sessions#destroy', as: :logout # logout_path - deletes session (log out)
 
       namespace :admin do
         root 'panel#index'                                  # admin_root_path
@@ -31,7 +40,8 @@ Rails.application.routes.draw do
     get    'sessions/new'                                 # sessions_new_path
     post   'login',   to: 'sessions#create'               # login_path  - creates new session (login)
     delete 'logout',  to: 'sessions#destroy', as: :logout # logout_path - deletes session (log out)
-
+   #get    'logout',  to: 'sessions#destroy', as: :logout # logout_path - deletes session (log out)
+    
     namespace :admin do
       root 'panel#index'                                  # admin_root_path
       resources :users

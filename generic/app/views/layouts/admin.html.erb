@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/flash_messages', flash: flash %>
-
-    <%= render 'layouts/admin_top_navigation' %>
+    <%= render 'shared/flash_messages', flash: flash %>
+    <%= render 'admin/shared/admin_top_navigation' %>
+    
     <%= yield %>
   </body>
 

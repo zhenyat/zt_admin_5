@@ -1,0 +1,61 @@
+/ https://www.quackit.com/bootstrap/bootstrap_4/tutorial/bootstrap_navbars.cfm
+
+.container-fluid
+  %nav.navbar.navbar-expand-sm.navbar-light.bg-faded
+    / Toggle menu
+    %button.navbar-toggler{"aria-controls" => "nav-content", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#nav-content", "data-toggle" => "collapse", :type => "button"}
+      %span.navbar-toggler-icon
+
+    / Brand (App Home Page)
+    .navbar-brand 
+      = link_to image_tag('logos/dummy_logo.png', title: app_name,  size: '142x82'), root_path
+
+    / Links
+    #nav-content.collapse.navbar-collapse
+      %ul.navbar-nav.mr-auto
+        %li.nav-item
+          .nav-link
+            = link_to  admin_root_path do
+              %span.fa.fa-home.fa-2x{"aria-hidden" => "true"}
+              = t(:admin_home)
+        %li.nav-item
+          - if @current_user.sysadmin?
+            .nav-link
+              = link_to admin_users_path do
+                /%span.fa.fa-home{"aria-hidden" => "true"}
+                %span.fa.fa-user-circle-o.fa-2x{"aria-hidden" => "true"}
+                = t User.model_name.human(count: 2)
+          - else
+            .nav-link
+              = link_to edit_admin_user_path(@current_user) do
+                %span.fa.fa-user-circle.fa-2x{"aria-hidden" => "true"}
+                = t(:profile)
+
+        / Dropdown list
+
+        %li.nav-item.dropdown
+          #Preview.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+            = link_to "#" do
+              %span.fa.fa-database.fa-2x{"aria-hidden" => "true"}
+              = t(:data)
+          .dropdown-menu{"aria-labelledby" => "Preview"}
+            .dropdown-item
+              = link_to t(:dummy), '#'
+              /= link_to t(Account.model_name.human(count: 2)),  admin_accounts_path
+            .dropdown-item
+              = link_to t(:dummy), '#'
+              /= link_to (t(Product.model_name.human(count: 2)), admin_productss_path
+
+      %ul.nav.navbar-nav
+        - if MULTILINGUAL
+          %li.nav-item.dropdown
+            #Preview.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :role => "button"}
+              = link_to "#" do
+                %span.fa.fa-language.fa-2x{"aria-hidden" => "true"}
+                = t(:language)
+            = language_switch_bootstrap('admin')
+        %li.nav-item
+          .nav-link
+            = link_to(logout_path, method: 'delete') do
+              %span.fa.fa-sign-out.fa-2x{"aria-hidden" => "true"}
+              = t 'simple_form.submit.logout'

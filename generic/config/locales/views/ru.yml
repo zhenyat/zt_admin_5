@@ -3,6 +3,7 @@ ru:
   about_company:    О Компании
   account:          Личный кабинет
   admin_home:       Админка Главная
+  admin_panel:      Панель администратора
   admin_users:      Пользователи
   contacts:         Контакты
   dummy:            Болванка
@@ -15,4 +16,4 @@ ru:
   sign_up:          Зарегистрироваться
 
   set_language:     Язык
-
+  site_design:      Разработка сайта

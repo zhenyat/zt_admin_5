@@ -1,6 +1,10 @@
 %footer
   .container
     %hr
-    %p© 2018 ZT Lab
-
-    = render 'shared/debug' if Rails.env.development? && ZT_DEBUG
+      .row
+        .col-md-offset-1.col-md-6.vcenter
+          = "© #{app_name}, #{Time.now.year}"
+        .col-md-3.vcenter
+          = image_tag "logos/ZT_Lab.gif", size: "32x32"
+          = "t :site_design"
+    = render 'shared/debug' if ZT_DEBUG

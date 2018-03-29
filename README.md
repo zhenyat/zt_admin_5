@@ -22,13 +22,13 @@ Then update files:
 
 ## Run:
 
-$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-1.12.0.gem
+$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-1.13.0.gem
 
 $ bin/zt_admin
 
 ## Uninstal gem
 
-$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.4.1/lib/ruby/gems/2.4.0 zt_admin
+$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.5.0/lib/ruby/gems/2.5.0 zt_admin
 
 # Admin Development:
 
