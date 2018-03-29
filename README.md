@@ -22,7 +22,7 @@ Then update files:
 
 ## Run:
 
-$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-1.10.1.gem
+$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-1.12.0.gem
 
 $ bin/zt_admin
 

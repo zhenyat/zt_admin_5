@@ -45,7 +45,7 @@
 #   09.01.2018  Ruby 2.5.0, bootstrap 4.0.0.beta3
 #   27.03.2018  Rails 5.2.0.rc2, bootstrap 4.0, 'webpacker', bootsnap, crono
 #               and some gems added / versions updated
-#               jquery-rails excluded
+#               jquery-rails excluded - NOT NOW! required by bootstrap (DDL)
 ################################################################################
 source 'https://rubygems.org'
 ruby '2.5.0'
@@ -72,7 +72,7 @@ gem 'react-rails'                               # https://rubygems.org/gems/reac
 #gem 'mini_racer', platforms: :ruby             # See https://github.com/rails/execjs#readme for more supported runtimes
 
 gem 'coffee-rails', '~> 4.2'                    # Use CoffeeScript for .coffee assets and views
-#gem 'jquery-rails'                              # Use jquery as the JavaScript library
+gem 'jquery-rails'                              # Use jquery as the JavaScript library
 gem 'turbolinks', '~> 5'                        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'jbuilder', '~> 2.5'                        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
@@ -126,10 +126,6 @@ gem 'bootstrap', '~> 4.0.0'                     # https://github.com/twbs/bootst
 gem 'lightbox2-rails'                           # https://github.com/gavinkflam/lightbox2-rails
 gem 'simple_form'                               # https://github.com/plataformatec/simple_form
 gem 'enum_help'
-
-gem 'gon'
-gem 'fusioncharts-rails'
-gem 'chartkick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw] # Byebug is a Ruby 2 debugger. Call 'byebug' anywhere in the code to stop execution and get a debugger console
