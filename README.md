@@ -2,17 +2,19 @@
 
 Gem to generate Admin files for RoR App via CLI. It's further development of *bkc_admin* gem.
 
-## Functionality:
+## Functionality
 
+v1: Standard RoR App for both BE & FE
+v2: webpacker with ReactJS to be applied for FE
 
+## Versions
 
-## Versions:
-
-Ruby 2.4.2, Rails 5.1.4     (v.1.10.0)
+v1: Ruby 2.4.2, Rails 5.1.4  (v.1.10.0)
+v2: Ruby 2.7.0, Rails 6.0.2.2
 
 ## Development
 
-$ chruby 2.4.1
+$ chruby 2.7.0
 
 $ bundle gem zt_admin
 
@@ -20,17 +22,17 @@ Then update files:
 
   lib/zt_admin.rb, bin/zt_admin, zt_admin.gemspec, .gitignore
 
-## Run:
+## Run
 
-$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-1.13.0.gem
+$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-2.0.0.gem
 
 $ bin/zt_admin
 
 ## Uninstal gem
 
-$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.5.0/lib/ruby/gems/2.5.0 zt_admin
+$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.7.0/lib/ruby/gems/2.7.0 zt_admin
 
-# Admin Development:
+## Admin Development
 
 $ rails g controller sessions new
 
@@ -41,4 +43,3 @@ $ rails g controller sessions new
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
 
 ## Issues to be solved
-

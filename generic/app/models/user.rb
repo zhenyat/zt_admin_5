@@ -4,22 +4,22 @@
 # Purpose:
 #
 # User attributes:
-#   role              - role:           enum
-#   last_name             - string:
-#   first_name             - string:
-#   email             - email:          string,  not NULL, unique
-#   password_digest   - password:       string, not NULL
-#   remember_token    - remember token: string
-#   status            - status:         enum { active (0) | archived (1) }
+#   role              - enum
+#   last_name         - string:
+#   first_name        - string:
+#   email             - string,  not NULL, unique
+#   password_digest   - string, not NULL
+#   remember_token    - rstring
+#   status            - enum { active (0) | archived (1) }
 #
-#  07.07.2016 ZT
+#   07.07.2016  ZT
+#   30.03.2020  enum syntax updated
 ################################################################################
 class User < ApplicationRecord
   before_save {self.email.downcase!}
 
-  enum role:   %w(manager admin sysadmin)
-  enum status: %w(active archived)
-
+  enum role:   ['manager', 'admin', 'sysadmin']
+  enum status: ['active,' 'archived']
 
   validates :last_name,  presence: true
   validates :first_name, presence: true

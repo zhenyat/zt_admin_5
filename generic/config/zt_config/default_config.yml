@@ -13,20 +13,15 @@
 #
 #   11.10.2016  ZT  Inherited from BKC 95km
 ################################################################################
-
 defaults: &defaults
-
   debug:
     status:         false
     path:           ''
-
   mail:
-    bcc:            zt@mail.ru
+    bcc:            evgt@mail.ru
     path:           public/mail/attachments
-
   multilingual:
     status:         true
-
 
 development:
   <<: *defaults
