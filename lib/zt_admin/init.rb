@@ -4,11 +4,17 @@
 #   First phase to start Application Admin generation: gets generic Gemfile
 #
 #   28.01.2017  ZT
+#   30.03.2020  Raspbian's Gemfile is handled
 ################################################################################
 
 module ZtAdmin
   begin
-    FileUtils.cp "#{generic}/Gemfile", AppRoot
+    puts colored(BLUE, "Current OS is #{RUBY_PLATFORM}")
+    if RUBY_PLATFORM == 'aarch64-linux'
+      FileUtils.cp "#{generic}/Raspbian/Gemfile", AppRoot
+    else
+      FileUtils.cp "#{generic}/Gemfile", AppRoot
+    end
     puts colored GREEN, "\File 'Gemfile' has been updated"
     
     puts colored(MAGENTA, "Run commands now:")
