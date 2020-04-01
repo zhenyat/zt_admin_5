@@ -245,7 +245,7 @@ module ZtAdmin
     create_dir "app/views/admin/"
     FileUtils.cp_r "#{views}/admin", "#{AppRoot}/app/views/"
 
-    puts colored(MAGENTA, "\n#{TAB}Run commands now (to crate db table 'users'):")
+    puts colored(MAGENTA, "\n#{TAB}Run commands now (to create db table 'users'):")
     puts colored(MAGENTA, "#{TAB2}rails db:migrate")
     puts colored(MAGENTA, "#{TAB2}rails db:seed")
 
