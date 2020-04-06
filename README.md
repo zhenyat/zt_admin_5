@@ -1,4 +1,4 @@
-# ZtAdmin v.2.1.1
+# ZtAdmin v.2.2.0
 
 Gem to generate Admin files for RoR App via CLI. It's further development of *bkc_admin* gem.
 
@@ -12,11 +12,11 @@ Gemfile for Raspbian has been added
 ## Versions
 
 v1: Ruby 2.4.2, Rails 5.1.4  (v.1.10.0)
-v2: Ruby 2.7.0, Rails 6.0.2.2
+v2: Ruby 2.7.1, Rails 6.0.2.2
 
 ## Development
 
-$ chruby 2.7.0
+$ chruby 2.7.1
 $ bundle gem zt_admin
 
 Then update files:
@@ -24,13 +24,13 @@ Then update files:
 
 ## Run
 
-$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-2.1.1.gem
+$ rm zt_admin*.gem; git add .; gem build zt_admin.gemspec; sudo gem install --local zt_admin-2.2.0.gem
 
 $ bin/zt_admin
 
 ## Uninstal gem
 
-$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.7.0/lib/ruby/gems/2.7.0 zt_admin
+$ gem uninstall -i /Users/zhenya/.rubies/ruby-2.7.1/lib/ruby/gems/2.7.0 zt_admin
 
 ## Admin Development
 
