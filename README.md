@@ -15,7 +15,7 @@ v1: Ruby 2.4.2, Rails 5.1.4  (v.1.10.0)
 v2: Ruby 2.7.1, Rails 6.0.3.2
 ```
 ## Development
-``
+```
 $ chruby 2.7.1
 $ bundle gem zt_admin
 ```
